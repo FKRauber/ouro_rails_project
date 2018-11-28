@@ -19,12 +19,4 @@ class TreasuresController < ApplicationController
 
   def destroy
   end
-
-  private
-
-  def treasure
-  end
-
-  def treasure_params
-  end
 end
