@@ -20,6 +20,8 @@ class TreasuresController < ApplicationController
   def destroy
   end
 
+  private
+
   def treasure
   end
 
