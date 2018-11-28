@@ -1,2 +1,2 @@
-class Treasure < ApplicationRecord
+class Treasure < ActiveRecord::Base
 end

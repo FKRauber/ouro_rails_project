@@ -1,2 +1,2 @@
-class Theory < ApplicationRecord
+class Theory < ActiveRecord::Base
 end
