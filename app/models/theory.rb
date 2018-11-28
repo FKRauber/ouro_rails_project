@@ -1,4 +1,4 @@
-class Theory < ActiveRecord::Base
+class Theory < ApplicationRecord
 	belongs_to :user
 	belongs_to :treasure
 end
