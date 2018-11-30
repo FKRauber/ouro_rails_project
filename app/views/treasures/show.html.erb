@@ -2,9 +2,19 @@
 
 <div class="center">
   <div class="info">
-    <p><strong>Name: </strong><%= @treasure.name %></p>
-    <p><strong>Description: </strong><%= @treasure.description %></p>
-    <p><strong>Total Theories: </strong><%= @treasure.theories.count %></p>
+    <p><strong>Name: </strong><%= @treasure.name %></p><br>
+    <p><strong>Description: </strong><%= @treasure.description %></p><br>
+    <p><strong>Total Theories: </strong><%= @treasure.theories.count %></p><br>
+
+    <!-- .map instead? -->
+    <%= @theories.each do |theory| %>
+      <strong><%= theory.name %></strong>
+      <%= theory.desription %>
+      <%= theory.issues %>
+        <!-- nested issues -->
+      <%= theory.success %>
+      <%= theory.prove_date %><br>
+    <% end %>
 
     <% if current_user.admin %>
       <%= link_to 'Edit Treasure', [:edit, @treasure] %>

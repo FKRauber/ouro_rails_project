@@ -13,9 +13,9 @@ class TreasuresController < ApplicationController
     @treasure = Treasure.new
   end
   def create
-    @treasure = Treasure.create(treasure_params)
+    @treasure = Treasure.new(treasure_params)
     if @treasure.save
-      redirect_to @treasure, notice: "Treasure was successfully saved"
+      redirect_to treasures_path, notice: "Treasure was successfully saved"
     else
       render :new
     end

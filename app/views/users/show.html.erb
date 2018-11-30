@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"><h1><%= notice %></h1></p>
 
 <% if @message %>
 	<div class="center alert">
@@ -11,8 +11,8 @@
 		<% if @user.admin %>
 			<p><strong>ADMIN</strong></p>
 		<% end %>
-		<p><strong>NAME: </strong><%= @user.name %></p>
+		<p><strong>NAME: </strong><%= @user.username %></p>
 		<p><%= link_to 'Edit', edit_user_path(@user) %></p>
-		<p><%= link_to 'See Treasure', treasures_path %></p>
+		<p><%= link_to 'See Treasures', treasures_path %></p>
 	</div>
 </div>
