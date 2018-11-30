@@ -1,2 +1,5 @@
-<h1>Treasures#new</h1>
-<p>Find me in app/views/treasures/new.html.erb</p>
+<h1>New Treasure</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @treasure %> | <%= link_to 'Back', treasures_path %>

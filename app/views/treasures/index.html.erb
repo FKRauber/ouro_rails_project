@@ -1,2 +1,31 @@
-<h1>Treasures#index</h1>
-<p>Find me in app/views/treasures/index.html.erb</p>
+<h1>List of Treasures</h1>
+
+<table class="table">
+  <thead>
+    <tr><th colspan="2"></th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Name</strong></td>
+      <td><strong>Description</strong></td>
+    </tr>
+
+    <% @treasures.each do |treasure| %>
+      <tr>
+        <td><%= treasure.name %></td>
+        <td><%= treasure.description %></td>
+        <% if current_user.admin %>
+          <td><%= link_to "Show #{treasure.name}", treasure_path(treasure) %></td>
+        <% else %>
+          <td><%= link_to "Go on #{treasure.name}", treasure_path(treasure) %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table><br>
+
+<% if @user %>
+  <p><%= link_to "Back to Profile", user_path(@user), {class: "btn btn-primary"} %></p>
+<% else %>
+  <p><%= link_to "New Treasure", new_treasure_path %></p>
+<% end %>
