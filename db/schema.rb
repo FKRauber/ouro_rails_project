@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_28_135434) do
+ActiveRecord::Schema.define(version: 2018_11_30_023238) do
 
   create_table "theories", force: :cascade do |t|
     t.string "name"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 2018_11_28_135434) do
     t.integer "theory_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "description"
     t.index ["theory_id"], name: "index_treasures_on_theory_id"
     t.index ["user_id"], name: "index_treasures_on_user_id"
   end
