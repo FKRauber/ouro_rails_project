@@ -17,7 +17,7 @@
         <% if current_user.admin %>
           <td><%= link_to "Show #{treasure.name}", treasure_path(treasure) %></td>
         <% else %>
-          <td><%= link_to "Go on #{treasure.name}", treasure_path(treasure) %></td>
+          <td><%= link_to "Find #{treasure.name}", treasure_path(treasure) %></td>
         <% end %>
       </tr>
     <% end %>
