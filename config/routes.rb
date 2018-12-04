@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :users
   resources :treasures
+  resources :theories
+
 
   get "/signin", to: "sessions#new"
   post "/signin", to: "sessions#create"
