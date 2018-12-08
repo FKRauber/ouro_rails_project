@@ -1,5 +1,3 @@
-require 'pry'
-
 class TreasuresController < ApplicationController
   before_action :treasure, except: [:new, :create, :index]
   
@@ -9,6 +7,7 @@ class TreasuresController < ApplicationController
 
   def show
     @treasure = treasure
+    @theories = Theory.all
   end
 
   def new
@@ -16,7 +15,7 @@ class TreasuresController < ApplicationController
   end
   def create
     @treasure = Treasure.new(treasure_params)
- binding.pry
+    # @treasure.user_id = current_user.id
     if @treasure.save
      
       redirect_to @treasure, notice: "Treasure was successfully saved"

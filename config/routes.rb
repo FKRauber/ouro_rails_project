@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   root "static_pages#home"
 
   resources :users
-  resources :treasures
-  resources :theories
+  resources :treasures do 
+    resources :theories, except: [:index, :show]
+  end
 
 
   get "/signin", to: "sessions#new"

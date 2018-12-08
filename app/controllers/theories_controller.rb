@@ -15,7 +15,7 @@ class TheoriesController < ApplicationController
   def create
     @theory = Theory.create(theory_params)
     if @theory.save
-      redirect_to @theory, notice: "Theory was successfully saved"
+      redirect_to threasure_theories_path, notice: "Theory was successfully saved"
     else
       render :new
     end
