@@ -2,29 +2,25 @@
 
 <div class="center">
   <div class="info">
-    <p><strong>Name: </strong><%= @treasure.name %></p><br>
-    <p><strong>Description: </strong><%= @treasure.description %></p><br>
-
-    <!-- .map instead? -->
-    <%= @theories.each do |theory| %>
-      <strong><%= theory.name %></strong>
-      <%= theory.desription %>
-      <%= theory.issues %>
-        <!-- nested issues -->
-      <%= theory.success %>
-      <%= theory.prove_date %><br>
-    <% end %>
-
-    <% if current_user.admin %>
-      <%= link_to 'Edit Treasure', [:edit, @treasure] %>
-    <% else %>
+    <p><strong>Name</strong><br><%= @treasure.name %></p>
+    <p><strong>Description</strong><br><%= @treasure.description %></p>
+    <p><strong>Theories</strong><br>
+      <!-- .map instead? -->
+      <%= @theories.each do |theory| %>
+        <strong><%= theory.name %></strong>
+        <%= theory.desription %>
+        <%= theory.issues %>
+          <!-- nested issues -->
+        <%= theory.success %>
+        <%= theory.prove_date %><br>
+      <% end %>
+    </p>
       <form action="/theories/new" method="post">
         <%= tag(:input, type: "hidden", name: request_forgery_protection_token.to_s, value: form_authenticity_token) %>
         <%= tag(:input, type: "hidden", name: :user_id, value: current_user.id) %>
         <%= tag(:input, type: "hidden", name: :treasure_id, value: @treasure.id) %>
         <input class="btn btn-light" type="submit" value="Find this Treasure">
-      </form>
-    <% end %>
-    <%= link_to 'Back', treasures_path, {class: "btn btn-primary btn-light"} %>
+      </form><br>
+    <%= link_to 'Back', treasures_path %> | <%= link_to 'Edit', [:edit, @treasure] %>
   </div>
 </div>

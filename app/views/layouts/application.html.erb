@@ -11,10 +11,10 @@
 
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <a class="navbar-brand" href="<%= root_url %>"/>Home</a>
       <ul class="nav navbar-nav">
         <% if current_user %>
-          <li><%= link_to "Hello, #{current_user.username}!", user_path(current_user) %></li>
+          <li><%= link_to "Home", root_url %></li>
+          <li><%= link_to "My Profile", user_path(current_user) %></li>
           <li><%= link_to "Treasures", treasures_path %></li>
           <li><%= link_to "Log Out", signout_path, method: :delete %></li>
         <% else %>

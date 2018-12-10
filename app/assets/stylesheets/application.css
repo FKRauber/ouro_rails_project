@@ -13,3 +13,60 @@
  *= require_tree .
  *= require_self
  */
+
+@import 'bootstrap';
+@import 'bootstrap-sprockets';
+
+body {
+	padding: 70px, 0;
+	text-align: center;
+}
+
+
+/* NAVIGATION - LAYOUTS/APPLICATION.HTML.ERB */
+.navbar {
+	position: -webkit-sticky;
+	position: sticky;
+	list-style: none;
+	display: block;	
+	background-color: rgba(86, 72, 16, 0.85);
+	padding: 30px;
+}
+
+
+.navbar ul {
+	display: inline;
+	padding: 40px;
+	margin-right: 40px;
+	color: #999;
+}
+
+.navbar ul li {
+	text-decoration: none;
+	display: inline-block;
+	padding-right: 30px;
+}
+
+/* LINKS */
+/* HOVER - ACTIVE */
+a:hover, a:active {
+	color: #999900;
+}
+
+/* DISPLAY - VISITED */
+a:link, a:visited {
+	color: #e7d27e;
+	text-decoration: none;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	background-color: rgba(86, 72, 16, 0.85);
+	padding: 10px;
+	border: 1px solid #000;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* LISTS - TREASURES/INDEX.HTML.ERB */
+.table td {
+	padding: 30px;
+	margin-right: 50px;
+	text-align: left;
+}

@@ -24,8 +24,4 @@
   </tbody>
 </table><br>
 
-<% if @user %>
-  <p><%= link_to "Back to Profile", user_path(@user), {class: "btn btn-primary"} %></p>
-<% else %>
-  <p><%= link_to "New Treasure", new_treasure_path %></p>
-<% end %>
+<p><%= link_to "New Treasure", new_treasure_path %></p>

@@ -1,9 +1,2 @@
-<h1>Welcome to Ouro!</h1>
+<h1><%= "Hello, #{current_user.username}! Welcome to Ouro!"%></h1>
 
-<% if current_user %>
-	<%= link_to "Hello, #{current_user.username}!", user_path(current_user) %> | 
-	<%= link_to "Treasure", treasures_path %> | 
-	<%= link_to "Log Out", signout_path %>
-<% else %>
-  <%= link_to "Sign Up", new_user_path %> | <%= link_to "Sign In", signin_path %>
-<% end %>
