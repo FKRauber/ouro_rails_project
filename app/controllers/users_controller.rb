@@ -28,8 +28,8 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    session.delete :name
-    redirect_to controller: 'application', action: 'hello'
+    user.delete :username
+    redirect_to user_path
   end
 
   private

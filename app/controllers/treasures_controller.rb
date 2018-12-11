@@ -35,7 +35,7 @@ class TreasuresController < ApplicationController
   end
 
   def destroy
-    @treasure.destroy
+    treasure.destroy
     redirect_to treasures_url, notice: "Treasure was successfully destroyed"
   end
 

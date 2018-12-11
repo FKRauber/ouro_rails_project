@@ -1,38 +1,56 @@
 class TheoriesController < ApplicationController
-  before_action :theory, except: [:new, :create, :index]
-  
   def index
-    @theories = Theory.all
+    if params[:treasure_id]
+      @treasure = Treasure.find_by(id: params[:treasure_id])
+      if @treasure == nil
+        flash[:alert] = "Treasure Not Found."
+        redirect_to treasure_path
+      else
+        @theories = @treasure.theories
+      end
+    else
+      @theories = Theory.all
+    end
   end
 
   def show
-    @theory = theory
+    if params[:treasure_id]
+      @treasure = Treasure.find_by(id: params[:treasure_id])
+      @theory = @treasure.theories.find_by(id: params[:id])
+      if @theory == nil
+        flash[:alert] = "Theory Not Found."
+        redirect_to treasure_theories_path(@treasure)
+      end
+    else
+      theory
+    end
   end
 
   def new
     @theory = Theory.new
   end
   def create
-    @theory = Theory.create(theory_params)
+    @theory = Theory.new(theory_params)
     if @theory.save
-      redirect_to threasure_theories_path, notice: "Theory was successfully saved"
+      redirect_to @theory, notice: "Theory was successfully saved"
     else
       render :new
     end
   end
 
   def edit
+    theory
   end
   def update
     if @theory.update(theory_params)
-      redirect_to @theory, notice: "Theory was successfully updated"
+      redirect_to treasure_theories_path, notice: "Theory was successfully updated"
     else
       render :edit
     end
   end
 
   def destroy
-    @theory.destroy
+    theory.destroy
     redirect_to theories_url, notice: "Theory was successfully destroyed"
   end
 
