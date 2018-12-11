@@ -42,8 +42,9 @@ class TheoriesController < ApplicationController
     theory
   end
   def update
-    if @theory.update(theory_params)
-      redirect_to treasure_theories_path, notice: "Theory was successfully updated"
+    theory.update(theory_params)
+    if theory.save
+      redirect_to @theory, notice: "Theory was successfully updated"
     else
       render :edit
     end
@@ -51,7 +52,7 @@ class TheoriesController < ApplicationController
 
   def destroy
     theory.destroy
-    redirect_to theories_url, notice: "Theory was successfully destroyed"
+    redirect_to theories_path, notice: "Theory was successfully destroyed"
   end
 
   private
