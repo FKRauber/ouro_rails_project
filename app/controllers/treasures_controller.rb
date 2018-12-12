@@ -6,8 +6,8 @@ class TreasuresController < ApplicationController
   end
 
   def show
-    @treasure = treasure
-    @theories = Theory.all
+    treasure
+    @theories = treasure.theories
   end
 
   def new
