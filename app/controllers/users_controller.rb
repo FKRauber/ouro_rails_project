@@ -28,7 +28,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    user.delete :username
+    user.clear
     redirect_to user_path
   end
 
