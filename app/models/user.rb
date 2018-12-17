@@ -5,6 +5,9 @@ class User < ApplicationRecord
 	has_many :created_treasure
 	has_many :treasures, through: :theories
 
+	validates :username, presence: true
+	validates :username, uniqueness: true, on: :create
+
 	def self.create_with_omniauth(auth)
 		create! do |user|
 			user.provider = auth["provider"]
