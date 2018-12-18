@@ -7,7 +7,7 @@ class TreasuresController < ApplicationController
 
   def show
     treasure
-    @theories = treasure.theories
+    @theory = Theory.new
   end
 
   def new
