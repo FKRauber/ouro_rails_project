@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :treasures do 
-    resources :theories
+    resources :theories, except: [:index, :show]
   end
 
   get "/auth/github/callback", to: "sessions#new"
