@@ -7,17 +7,15 @@ class TreasuresController < ApplicationController
 
   def show
     treasure
-    @theory = Theory.new
   end
 
   def new
     @treasure = Treasure.new
+    @treasure.theories.build
   end
   def create
     @treasure = Treasure.new(treasure_params)
-    # @treasure.user_id = current_user.id
     if @treasure.save
-     
       redirect_to @treasure, notice: "Treasure was successfully saved"
     else
       render :new

@@ -1,15 +1,15 @@
 <%= form_for @treasure do |f| %>
 	
 	<%= f.label :name %><br><%= f.text_field :name, class: "form-control" %><br>
-	<%= f.label :description %><br><%= f.text_area :description, class: "form-control" %><br>
+	<%= f.label :description %><br><%= f.text_area :description, class: "form-control" %><br><br>
 
 	<%= f.fields_for :theories do |theory| %>
-		<%= theory.label :name %><%= theory.text_field :name %><br>
-		<%= theory.label :description %><%= theory.text_area :description %><br>
-		<%= theory.label :issues %><%= theory.text_field :issues %><br>
-		<%= theory.label :success %><%= theory.check_box :success %><br>
-		<%= theory.label :prove_date %><%= theory.date_field :prove_date %><br>
-	<% end %>
+		<%= theory.label :theory_name %><br><%= theory.text_field :name %><br>
+		<%= theory.label :theory_description %><br><%= theory.text_area :description %><br>
+		<%= theory.label :theory_issues %><br><%= theory.text_field :issues %><br>
+		<%= theory.label :theory_success %><br><%= theory.check_box :success %><br>
+		<%= theory.label :theory_prove_date %><br><%= theory.date_field :prove_date %><br>
+	<% end %><br>
 		
 	<%= f.submit class: "btn btn-primary" %>
 

@@ -19,6 +19,14 @@
         <% else %>
           <td><%= link_to "Find #{treasure.name}", treasure_path(treasure) %></td>
         <% end %>
+        <td><strong>Theory Name</strong></td>
+          <% @treasures.theories.each do |theory| %>
+            <td><%= theory.name %></td>
+            <td><%= theory.description %></td>
+            <td><%= theory.issues %></td>
+            <td><%= theory.success %></td>
+            <td><%= theory.prove_date %></td>
+          <% end %>
       </tr>
     <% end %>
   </tbody>
