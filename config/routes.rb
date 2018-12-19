@@ -13,5 +13,4 @@ Rails.application.routes.draw do
   post "/signin", to: "sessions#create"
   post "/sessions/create", to: "sessions#create"
   delete "/signout", to: "sessions#destroy"
-  post "/theories/new", to: "theories#new"
 end
