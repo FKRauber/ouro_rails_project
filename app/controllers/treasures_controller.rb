@@ -1,8 +1,8 @@
 class TreasuresController < ApplicationController
-  before_action :treasure, except: [:new, :create, :index]
   
   def index
     @treasures = Treasure.all
+    @theory = Theory.find_by(params[:id])
   end
 
   def show
@@ -25,8 +25,9 @@ class TreasuresController < ApplicationController
   def edit
   end
   def update
-    if @treasure.update(treasure_params)
-      redirect_to @treasure, notice: "Treasure was successfully updated"
+    treasure
+    if treasure.update(treasure_params)
+      redirect_to treasure_path, notice: "Treasure was successfully updated"
     else
       render :edit
     end
