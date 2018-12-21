@@ -5,15 +5,15 @@
     <p><strong>Name</strong><br><%= @treasure.name %></p>
     <p><strong>Description</strong><br><%= @treasure.description %></p>
 
+      <% @treasure.theories.each do |t| %>
+        <li><%= t.label "Theory Name:" %><%= t.name %></li><br>
+        <li><%= t.label "Theory Description:" %> <%= t.description %></li><br>
+        <li><%= t.label "Theory Issues:" %> <%= t.issues %></li><br>
+        <li><%= t.label "Theory Success?" %> <%= t.success %></li><br>
+        <li><%= t.label "Theory Prove Date:" %> <%= t.prove_date %></li><br>
+      <% end %>
 
-
-      <form action="/theories/new" method="post">
-        <%= tag(:input, type: "hidden", name: request_forgery_protection_token.to_s, value: form_authenticity_token) %>
-        <%= tag(:input, type: "hidden", name: :user_id, value: current_user.id) %>
-        <%= tag(:input, type: "hidden", name: :treasure_id, value: @treasure.id) %>
-        <input class="btn btn-light" type="submit" value="Find this Treasure">
-      </form><br>
       
-    <%= link_to 'Back', treasures_path %> | <%= link_to 'Edit', [:edit, @treasure] %> | <%= link_to 'Create Theory' %>
+    <%= link_to 'Back', treasures_path %> | <%= link_to 'Edit', [:edit, @treasure] %> | <%= link_to 'Create Theory', new_treasure_theory_path %>
   </div>
 </div>

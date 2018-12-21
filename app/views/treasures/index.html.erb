@@ -16,18 +16,10 @@
         <td><%= treasure.description %></td>
         <% if current_user.admin %>
           <td><%= link_to "Show #{treasure.name}", treasure_path(treasure) %></td>
+          <td><%= link_to "Delete #{treasure.name}", treasure_path(treasure), method: :delete, data: { confirm: "Are you sure you want to delete #{treasure.name}?" } %></td>
         <% else %>
           <td><%= link_to "Find #{treasure.name}", treasure_path(treasure) %></td>
         <% end %>
-        <ul>
-          <% treasure.theories.each do |t| %>
-            Theory Name: <li><%= t.name %></li><br>
-            Theory Description: <li><%= t.description %></li><br>
-            Theory Issues: <li><%= t.issues %></li><br>
-            Theory Success? <li><%= t.success %></li><br>
-            Theory Prove Date: <li><%= t.prove_date %></li><br>
-          <% end %>
-        </ul> 
       </tr>
     <% end %>
   </tbody>
