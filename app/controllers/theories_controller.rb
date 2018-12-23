@@ -28,6 +28,7 @@ class TheoriesController < ApplicationController
 
   def new
     @theory = Theory.new
+    @treasure = Treasure.find_by(params[:id])
   end
   def create
     @theory = Theory.new(theory_params)
