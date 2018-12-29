@@ -1,4 +1,15 @@
-<%= form_for new_treasure_theory_path(@treasure, @theory) do |f| %>
+<%= form_for [@treasure, @theory] do |f| %>
+	<% if @theory.errors.any? %>
+		<div id="error_explanation">	
+			<h2><%= pluralize(@theory.errors.count, "error") %> prohibited this theory from being saved:</h2>
+			<ul>
+				<% @theory.errors.full_messages.each do |message| %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	
 	<div class="form-group">
 		<%= f.label :name %><br><%= f.text_field :name, class: "form-control" %>
 	</div>
@@ -20,7 +31,7 @@
 	</div><br>
 
 	<div class="actions">
-		<%= f.submit class: "btn btn-primary" %>
+		<%= f.submit "Add Theory" %>
 	</div>
 
 <% end %>

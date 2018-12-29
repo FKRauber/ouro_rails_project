@@ -28,12 +28,13 @@ class TheoriesController < ApplicationController
 
   def new
     @theory = Theory.new
-    @treasure = Treasure.find_by(params[:id])
+    @treasure = Treasure.find_by(id: params[:treasure_id])
   end
   def create
     @theory = Theory.new(theory_params)
+    @treasure = Treasure.find_by(id: params[:treasure_id])
     if @theory.save
-      redirect_to @theory, notice: "Theory was successfully saved"
+      redirect_to @treasure, notice: "Theory was successfully saved"
     else
       render :new
     end
