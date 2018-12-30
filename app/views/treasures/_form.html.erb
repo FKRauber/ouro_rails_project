@@ -14,6 +14,7 @@
 	<%= f.label :description %><br><%= f.text_area :description, class: "form-control" %><br><br>
 
 	<%= f.fields_for :theories do |theory| %>
+		<%= f.hidden_field :treasure_id %>
 		<%= theory.label :theory_name %><br><%= theory.text_field :name %><br>
 		<%= theory.label :theory_description %><br><%= theory.text_area :description %><br>
 		<%= theory.label :theory_issues %><br><%= theory.text_field :issues %><br>
