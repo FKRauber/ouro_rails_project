@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :theories
   end
 
-  get "/auth/github/callback", to: "sessions#new"
+  get "/auth/github/callback", to: "sessions#create"
   get "/signin", to: "sessions#new"
   post "/signin", to: "sessions#create"
   post "/sessions/create", to: "sessions#create"

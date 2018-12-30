@@ -6,14 +6,14 @@
     <p><strong>Description</strong><br><%= @treasure.description %></p>
 
       <% @treasure.theories.each do |t| %>
-        <li>Theory Name: <%= t.name %></li><br>
-        <li>Theory Description: <%= t.description %></li><br>
-        <li>Theory Issues: <%= t.issues %></li><br>
-        <li>Theory Success? <%= t.success %></li><br>
-        <li>Theory Prove Date: <%= t.prove_date %></li><br>
-      <% end %>
+        Theory Name: <%= t.name %><br>
+        Theory Description: <%= t.description %><br>
+        Theory Issues: <%= t.issues %><br>
+        Theory Success? <%= t.success %><br>
+        Theory Prove Date: <%= t.prove_date %><br>
+      <% end %><br>
 
       
-    <%= link_to 'Back', treasures_path %> | <%= link_to 'Edit', [:edit, @treasure] %> | <%= link_to 'Create Theory', new_treasure_theory_path(@treasure.id) %>
+    <%= link_to 'Edit', [:edit, @treasure] %> | <%= link_to 'Create Theory', new_treasure_theory_path(@treasure.id) %>
   </div>
 </div>
