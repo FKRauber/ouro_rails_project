@@ -5,14 +5,24 @@
     <p><strong>Name</strong><br><%= @treasure.name %></p>
     <p><strong>Description</strong><br><%= @treasure.description %></p>
 
+    <table class="box" align="center"> 
+      <tr>
+        <th>Theory Name</th>
+        <th>Theory Description</th>
+        <th>Theory Issues</th>
+        <th>Theory Success?</th>
+        <th>Theory Prove Date</th>
+      </tr>
       <% @treasure.theories.each do |t| %>
-        Theory Name: <%= t.name %><br>
-        Theory Description: <%= t.description %><br>
-        Theory Issues: <%= t.issues %><br>
-        Theory Success? <%= t.success %><br>
-        Theory Prove Date: <%= t.prove_date %><br>
-      <% end %><br>
-
+        <tr>
+          <td><%= t.name %></td>
+          <td><%= t.description %></td>
+          <td><%= t.issues %></td>
+          <td><%= t.success %></td>
+          <td><%= t.prove_date %></td>
+        </tr>
+      <% end %>
+    </table><br>
       
     <%= link_to 'Edit', [:edit, @treasure] %> | <%= link_to 'Create Theory', new_treasure_theory_path(@treasure.id) %>
   </div>
