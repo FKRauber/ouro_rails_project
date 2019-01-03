@@ -7,4 +7,13 @@ class Treasure < ApplicationRecord
 
 	validates :name, presence: true
 	validates :name, uniqueness: true, on: :create
+
+	def theories_attributes=(theory_attributes)
+		theory_attributes.values.each do |atts|
+			theory = Theory.find_or_create_by(atts)
+			self.theories << theory
+		end
+	end
+
+
 end

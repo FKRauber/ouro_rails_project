@@ -1,30 +1,4 @@
 class TheoriesController < ApplicationController
-  def index
-    if params[:treasure_id]
-      @treasure = Treasure.find_by(id: params[:treasure_id])
-      if @treasure == nil
-        flash[:alert] = "Treasure Not Found."
-        redirect_to treasure_path
-      else
-        @theories = @treasure.theories
-      end
-    else
-      @theories = Theory.all
-    end
-  end
-
-  def show
-    if params[:treasure_id]
-      @treasure = Treasure.find_by(id: params[:treasure_id])
-      @theory = @treasure.theories.find_by(id: params[:id])
-      if @theory == nil
-        flash[:alert] = "Theory Not Found."
-        redirect_to treasure_theories_path(@treasure)
-      end
-    else
-      theory
-    end
-  end
 
   def new
     @theory = Theory.new
@@ -33,6 +7,7 @@ class TheoriesController < ApplicationController
   def create
     @theory = Theory.new(theory_params)
     @treasure = Treasure.find_by(id: params[:treasure_id])
+    @theory.treasure_id = @treasure.id
     if @theory.save
       redirect_to @treasure, notice: "Theory was successfully saved"
     else
@@ -64,6 +39,6 @@ class TheoriesController < ApplicationController
   end
 
   def theory_params
-    params.require(:theory).permit(:name, :description, :issues, :success, :prove_date)
+    params.require(:theory).permit(:name, :description, :issues, :success, :prove_date, :treasure_id)
   end
 end
