@@ -13,6 +13,9 @@
         <th>Theory Success?</th>
         <th>Theory Prove Date</th>
       </tr>
+      <% Theory.success.each do %>
+        <h3 style="color: red; font-style: italic;">Mystery Solved!</h3>
+      <% end %>
       <% @treasure.theories.each do |t| %>
         <tr>
           <td><%= t.name %></td>

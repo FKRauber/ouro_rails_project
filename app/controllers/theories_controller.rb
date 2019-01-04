@@ -8,6 +8,7 @@ class TheoriesController < ApplicationController
     @theory = Theory.new(theory_params)
     @treasure = Treasure.find_by(id: params[:treasure_id])
     @theory.treasure_id = @treasure.id
+    
     if @theory.save
       redirect_to @treasure, notice: "Theory was successfully saved"
     else

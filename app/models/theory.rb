@@ -6,8 +6,4 @@ class Theory < ApplicationRecord
 	validates :name, uniqueness: true, on: :create
 
 	scope :success, -> {where(success: true)}
-
-	def self.success_theory
-		
-	end
 end

@@ -1,6 +1,6 @@
 <h1>List of Treasures</h1>
 
-<table class="table">
+<table class="table" align="center">
   <thead>
     <tr><th colspan="2"></th></tr>
   </thead>
@@ -20,7 +20,7 @@
         <% else %>
           <td><%= link_to "Find #{treasure.name}", treasure_path(treasure) %></td>
         <% end %>
-      </tr>
+      </tr><br>
     <% end %>
   </tbody>
 </table><br>
