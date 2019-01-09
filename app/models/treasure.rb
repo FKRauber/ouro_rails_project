@@ -1,5 +1,5 @@
 class Treasure < ApplicationRecord
-	has_many :theories
+	has_many :theories, :dependent => :destroy
 	has_many :users, through: :theories
 	accepts_nested_attributes_for :theories
 

@@ -5,9 +5,8 @@ class TheoriesController < ApplicationController
     @treasure = Treasure.find_by(id: params[:treasure_id])
   end
   def create
-    @theory = Theory.new(theory_params)
     @treasure = Treasure.find_by(id: params[:treasure_id])
-    @theory.treasure_id = @treasure.id
+    @theory = @treasure.theories.build(theory_params)
     
     if @theory.save
       redirect_to @treasure, notice: "Theory was successfully saved"

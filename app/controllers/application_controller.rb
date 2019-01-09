@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 	helper_method :current_user
 
 	before_action :current_user
-	before_action :logged_in_req, except: [:new, :create, :home]
+	before_action :logged_in_req, except: [:new, :create, :home, :omniauth]
 
 	def logged_in?
 		!!current_user
