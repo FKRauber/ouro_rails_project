@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :theories
   end
 
+  get "/recent", to: "theories#recent"
+
   get "/auth/github/callback", to: "sessions#omniauth"
   get "/signin", to: "sessions#new"
   post "/signin", to: "sessions#create"

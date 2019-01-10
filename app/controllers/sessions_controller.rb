@@ -6,14 +6,14 @@ class SessionsController < ApplicationController
   end
   def create
     if params[:username].nil? || params[:password].nil?
-      redirect_to signin_path
+      redirect_to signin_path, :notice => "A field was left blank, please try again."
     else
-      @user = User.find_or_create_by(username: params[:user][:username])
+      @user = User.find_or_create_by(username: params[:user][:username].downcase)
       if @user && @user.authenticate(params[:user][:password])
         session[:user_id] = @user.id
         redirect_to user_path(@user)
       else
-        redirect_to signin_path
+        redirect_to signin_path, :notice => "Unable to sign you in, please try again."
       end
     end
   end

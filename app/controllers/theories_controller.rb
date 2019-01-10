@@ -32,6 +32,11 @@ class TheoriesController < ApplicationController
     redirect_to theories_path, notice: "Theory was successfully destroyed"
   end
 
+
+  def recent
+    @theories = Theory.recent_theories
+  end
+
   private
 
   def theory

@@ -6,4 +6,8 @@ class Theory < ApplicationRecord
 	validates :name, uniqueness: true, on: :create
 
 	scope :success, -> {where(success: true)}
+
+	def self.recent_theories 
+		order('created_at desc').limit(3)
+	end
 end

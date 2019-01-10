@@ -1,0 +1,8 @@
+<h1>Most Recent Theories</h1>
+
+<!-- list 3 theories and link to treasure show page -->
+<%= @theories.each do |t| %>
+	binding.pry
+	<%= t.name %>
+	<%= link_to '#{t.treasure.name}', treasure_path(t.treasure) %>
+<% end %>
