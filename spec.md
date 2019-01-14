@@ -23,3 +23,9 @@ Confirm:
 [x] Limited logic in controllers
 [x] Views use helper methods if appropriate
 [x] Views use partials if appropriate
+
+Additional :
+[] Show three most recent theories and associated treasures
+[] Add creating user to recent and treasures/show views
+[] Edit schema to properly reflect model relationships
+[] Finish OmniAuth
