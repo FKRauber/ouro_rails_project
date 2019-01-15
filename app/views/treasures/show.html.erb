@@ -5,13 +5,14 @@
     <p><strong>Name</strong><br><%= @treasure.name %></p>
     <p><strong>Description</strong><br><%= @treasure.description %></p>
 
-    <table class="box" align="center"> 
+    <table class="box" align="center">
       <tr>
         <th>Theory Name</th>
         <th>Theory Description</th>
         <th>Theory Issues</th>
         <th>Theory Success?</th>
         <th>Theory Prove Date</th>
+        <th></th>
       </tr>
       <% @treasure.theories.success.each do %>
         <h3 style="color: red; font-style: italic;">Mystery Solved!</h3>
@@ -23,10 +24,11 @@
           <td><%= t.issues %></td>
           <td><%= t.success %></td>
           <td><%= t.prove_date %></td>
+          <td><%= link_to 'Edit #{@theory.name}', [edit_treasure_theory_path, @theory] %></td>
         </tr>
       <% end %>
     </table><br>
-      
+
     <%= link_to 'Edit', [:edit, @treasure] %> | <%= link_to 'Create Theory', new_treasure_theory_path(@treasure.id) %>
   </div>
 </div>
