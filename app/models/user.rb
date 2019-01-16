@@ -5,14 +5,14 @@ class User < ApplicationRecord
 	has_many :created_treasure
 	has_many :treasures, through: :theories
 
-	validates :username, presence: true
+	validates :username || :email, presence: true
 	validates :username, uniqueness: true, on: :create
 
-	def self.find_or_create_with_omniauth(auth)
-		create! do |user|
-			user.username = auth["username"]
-			user.email = auth["email"]
-			user.password = auth["uid"]
+	def self.find_or_create_with_oa(uid: auth['uid']) do |u|
+			u.uid = auth["uid"]
+			u.username = auth["username"]
+			u.email = auth["email"]
+			u.password = auth["uid"]
 		end
 	end
 end

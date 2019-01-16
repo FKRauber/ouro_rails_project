@@ -19,9 +19,11 @@ class SessionsController < ApplicationController
   end
 
   def omniauth
-    @user =  User.find_or_create_with_omniauth(auth)
+    binding.pry
+
+    @user =  User.find_or_create_with_oa(uid: auth['uid'])
     if @user
-      session[:user_id] = @user.id 
+      session[:user_id] = @user.id
       redirect_to user_path(@user), :notice => "Signed In!"
     else
       redirect_to signin_path, :notice => "Unable to sign you in, please try again."
