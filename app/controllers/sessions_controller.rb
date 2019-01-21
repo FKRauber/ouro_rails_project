@@ -1,20 +1,17 @@
 class SessionsController < ApplicationController
+  before_action :logged_in_req, except: [:new, :create, :home, :omniauth]
 
   def new
     @user = User.new
     @users = User.all
   end
   def create
-    if params[:username].nil? || params[:password].nil? || params[:email].nil?
-      redirect_to signin_path
+    @user = User.find_by(username: params[:user][:username])
+    if @user && @user.authenticate(params[:user][:password])
+      session[:user_id] = @user.id
+      redirect_to user_path(@user)
     else
-      @user = User.find_by(email: params[:user][:email])
-      if @user && @user.authenticate(params[:user][:password])
-        session[:user_id] = @user.id
-        redirect_to user_path(@user)
-      else
-        redirect_to signin_path, :notice => "Unable to sign you in, please try again."
-      end
+      redirect_to signin_path, :notice => "Unable to sign you in, please try again."
     end
   end
 
@@ -30,7 +27,7 @@ class SessionsController < ApplicationController
 
   def destroy
   	session.clear
-  	redirect_to root_url, :notice => "Signed Out!"
+  	redirect_to root_url
   end
 
   private

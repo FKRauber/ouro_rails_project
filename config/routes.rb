@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root "static_pages#home"
 
   resources :users
-  resources :treasures do 
+  resources :treasures do
     resources :theories
   end
 
@@ -13,6 +13,5 @@ Rails.application.routes.draw do
   get "/auth/github/callback", to: "sessions#omniauth"
   get "/signin", to: "sessions#new"
   post "/signin", to: "sessions#create"
-  post "/sessions/create", to: "sessions#create"
   delete "/signout", to: "sessions#destroy"
 end
