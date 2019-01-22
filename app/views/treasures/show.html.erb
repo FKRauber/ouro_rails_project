@@ -12,7 +12,8 @@
         <th>Theory Issues</th>
         <th>Theory Success?</th>
         <th>Theory Prove Date</th>
-        <th></th>
+        <th>Edit</th>
+        <th>Delete</th>
       </tr>
       <% @treasure.theories.success.each do %>
         <h3 style="color: red; font-style: italic;">Mystery Solved!</h3>
@@ -24,6 +25,9 @@
           <td><%= t.issues %></td>
           <td><%= t.success %></td>
           <td><%= t.prove_date %></td>
+          <td><%= link_to 'Edit', edit_treasure_theory_path(@theory.id) %></td>
+          <td><%= link_to "Delete #{@theory.name}", treasure_theory_path(@theory), method: :delete, data: { confirm: "Are you sure you want to delete #{@theory.name}?" } %></td>
+
         </tr>
       <% end %>
     </table><br>
