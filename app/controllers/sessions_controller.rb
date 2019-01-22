@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:user][:username])
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
-      redirect_to user_path(@user)
+      redirect_to user_path(@user), :notice => "Signed In!"
     else
       redirect_to signin_path, :notice => "Unable to sign you in, please try again."
     end
@@ -21,13 +21,13 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_url, :notice => "Signed In!"
     else
-      redirect_to root_url
+      redirect_to root_url, :notice => "Unable to sign you in, please try again."
     end
   end
 
   def destroy
   	session.clear
-  	redirect_to root_url
+  	redirect_to root_url, :notice => "Logged Out"
   end
 
   private

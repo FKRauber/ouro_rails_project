@@ -1,5 +1,5 @@
 class TreasuresController < ApplicationController
-  
+
   def index
     @treasures = Treasure.all
     @theory = Theory.find_by(params[:id])
@@ -24,6 +24,7 @@ class TreasuresController < ApplicationController
   end
 
   def edit
+    treasure
   end
   def update
     treasure
