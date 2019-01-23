@@ -16,9 +16,7 @@ class TreasuresController < ApplicationController
     @treasure.theories.build
   end
   def create
-    @treasure = Treasure.new(treasure_params) do |tr|
-      tr.creator_name = current_user.username
-    end
+    @treasure = Treasure.new(treasure_params)
     if @treasure.save
       redirect_to @treasure, notice: "Treasure was successfully saved"
     else
@@ -46,11 +44,11 @@ class TreasuresController < ApplicationController
   private
 
   def treasure
-    @treasure = Treasure.find(params[:id])
+    @treasure = Treasure.find_by(id: params[:id])
   end
 
   def theory
-    @theory = Theory.find_by(params[:id])
+    @theory = Theory.find_by(id: params[:id])
   end
 
   def treasure_params

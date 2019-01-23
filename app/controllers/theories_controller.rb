@@ -44,7 +44,7 @@ class TheoriesController < ApplicationController
   private
 
   def theory
-    @theory = Theory.find(params[:id])
+    @theory = Theory.find_by(id: params[:id])
   end
 
   def treasure
