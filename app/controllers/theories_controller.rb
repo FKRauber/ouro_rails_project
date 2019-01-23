@@ -1,13 +1,14 @@
 class TheoriesController < ApplicationController
 
   def new
+    treasure
     @theory = Theory.new
-    @treasure = Treasure.find_by(id: params[:treasure_id])
+    # @treasure.theory << @theory
   end
   def create
-    @treasure = Treasure.find_by(id: params[:treasure_id])
+    treasure
     @theory = @treasure.theories.build(theory_params)
-    
+
     if @theory.save
       redirect_to @treasure, notice: "Theory was successfully saved"
     else
@@ -17,19 +18,22 @@ class TheoriesController < ApplicationController
 
   def edit
     theory
+    treasure
   end
   def update
+    treasure
     theory.update(theory_params)
     if theory.save
-      redirect_to @theory, notice: "Theory was successfully updated"
+      redirect_to treasure_path, notice: "Theory was successfully updated"
     else
       render :edit
     end
   end
 
   def destroy
+    treasure
     theory.destroy
-    redirect_to theories_path, notice: "Theory was successfully destroyed"
+    redirect_to treasure_path, notice: "Theory was successfully destroyed"
   end
 
 
@@ -41,6 +45,10 @@ class TheoriesController < ApplicationController
 
   def theory
     @theory = Theory.find(params[:id])
+  end
+
+  def treasure
+    @treasure = Treasure.find_by(id: params[:treasure_id])
   end
 
   def theory_params

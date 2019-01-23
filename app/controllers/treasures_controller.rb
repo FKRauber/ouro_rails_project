@@ -16,7 +16,9 @@ class TreasuresController < ApplicationController
     @treasure.theories.build
   end
   def create
-    @treasure = Treasure.new(treasure_params)
+    @treasure = Treasure.new(treasure_params) do |tr|
+      tr.creator_name = current_user.username
+    end
     if @treasure.save
       redirect_to @treasure, notice: "Treasure was successfully saved"
     else
@@ -52,8 +54,8 @@ class TreasuresController < ApplicationController
   end
 
   def treasure_params
-    params.require(:treasure).permit(:name, :description, theories_attributes: [
-      :name, :description, :issues, :success, :prove_date
-    ])
+    params.require(:treasure).permit(:name, :description,
+      theories_attributes: [:name, :description, :issues, :success, :prove_date]
+    )
   end
 end
