@@ -12,6 +12,7 @@
         <th>Theory Issues</th>
         <th>Theory Success?</th>
         <th>Theory Prove Date</th>
+        <th>Created By</th>
         <th>Edit</th>
         <th>Delete</th>
       </tr>
@@ -20,13 +21,14 @@
       <% end %>
       <% @treasure.theories.each do |t| %>
         <tr>
-          <td><%= t.name %></td>
+          <td ><%= t.name %></td>
           <td><%= t.description %></td>
           <td><%= t.issues %></td>
           <td><%= t.success %></td>
           <td><%= t.prove_date %></td>
-          <td><%= link_to 'Edit', [:edit, @treasure, @theory] %></td>
-          <td><%= link_to "Delete", treasure_theory_path(@treasure, @theory), method: :delete, data: { confirm: "Are you sure you want to delete #{@theory.name}?" } %></td>
+          <td><%= "Created By: #{t.name}" %></td>
+          <td><%= link_to "Edit #{t.name}", [:edit, @treasure, t] %></td>
+          <td><%= link_to "Delete #{t.name}", treasure_theory_path(@treasure, t), method: :delete, data: { confirm: "Are you sure you want to delete #{t.name}?" } %></td>
 
         </tr>
       <% end %>

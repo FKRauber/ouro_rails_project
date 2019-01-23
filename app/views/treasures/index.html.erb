@@ -13,8 +13,9 @@
 
     <% @treasures.each do |treasure| %>
       <tr>
-        <td style="padding-right: 20px;"><%= treasure.name %></td>
-        <td style="padding-right: 20px;"><%= treasure.description %></td>
+        <td><%= treasure.name %></td>
+        <td><%= treasure.description %></td>
+        <td><%= treasure.name %></td>
 
         <% if current_user.admin %>
           <td><%= link_to "Show #{treasure.name}", treasure_path(treasure) %></td>

@@ -30,7 +30,7 @@ body {
 	position: -webkit-sticky;
 	position: sticky;
 	list-style: none;
-	display: block;	
+	display: block;
 	background-color: rgba(86, 72, 16, 0.85);
 	padding: 30px;
 }
@@ -64,6 +64,7 @@ a:link, a:visited {
 	padding: 10px;
 	border: 1px solid #000;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	white-space: nowrap;
 }
 
  /* TABLE - VIEWS/TREASURES/SHOW */
@@ -74,13 +75,12 @@ a:link, a:visited {
 }
 
 .box th {
-	padding: 10px;
+	padding: 5px;
 	background-color: #E6E6E6;
 }
 
 .box td {
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding: 14px 7px;
 }
 
 /* TABLE - VIEWS/TREASURES/INDEX */
@@ -90,7 +90,6 @@ a:link, a:visited {
 }
 
 .table td {
-	padding-top: 15px;
-	padding-bottom: 15px;
+	padding: 12px 8px;
 	text-align: left;
 }

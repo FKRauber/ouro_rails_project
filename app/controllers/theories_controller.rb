@@ -33,7 +33,7 @@ class TheoriesController < ApplicationController
   def destroy
     treasure
     theory.destroy
-    redirect_to treasure_path, notice: "Theory was successfully destroyed"
+    redirect_to treasure_path(@treasure), notice: "Theory was successfully destroyed"
   end
 
 
