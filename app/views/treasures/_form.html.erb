@@ -20,7 +20,7 @@
 		<%= theory.label :theory_success %><br><%= theory.check_box :success %><br>
 		<%= theory.label :theory_prove_date %><br><%= theory.date_field :prove_date %><br>
 
-		<%= theory.hidden_field :creator, :value => current_user.username %>
+		<%= theory.hidden_field :user_id, :value => current_user %>
 	<% end %><br>
 
 	<%= f.submit class: "btn btn-primary" %>

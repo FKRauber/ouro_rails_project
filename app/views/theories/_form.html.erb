@@ -31,7 +31,7 @@
 		<%= f.label :prove_date %><br><%= f.date_field :prove_date, class: "form-control" %>
 	</div><br>
 
-		<%= f.hidden_field :creator, :value => current_user.username %>
+		<%= f.hidden_field :user_id, :value => current_user %>
 
 	<div class="actions">
 		<%= f.submit "Add Theory" %>

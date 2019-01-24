@@ -57,7 +57,7 @@ class TheoriesController < ApplicationController
   end
 
   def user
-    @user = User.find_by(id: params[:user_id])
+    @user = current_user
   end
 
   def theory_params

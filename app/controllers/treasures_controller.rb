@@ -53,12 +53,12 @@ class TreasuresController < ApplicationController
   end
 
   def user
-    @user = User.find_by(id: params[:user_id])
+    @user = User.find_by(id: params[:id])
   end
 
   def treasure_params
     params.require(:treasure).permit(:name, :description,
-      theories_attributes: [:name, :description, :issues, :success, :prove_date, :creator, :treasure_id, :user_id]
+      theories_attributes: [:name, :description, :issues, :success, :prove_date, :treasure_id, :user_id]
     )
   end
 end
