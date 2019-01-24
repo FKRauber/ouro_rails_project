@@ -7,8 +7,9 @@ class TreasuresController < ApplicationController
 
   def show
     treasure
-    @theories = Theory.all
     theory
+    user
+    @theories = Theory.all
   end
 
   def new
@@ -51,9 +52,13 @@ class TreasuresController < ApplicationController
     @theory = Theory.find_by(id: params[:id])
   end
 
+  def user
+    @user = User.find_by(id: params[:user_id])
+  end
+
   def treasure_params
     params.require(:treasure).permit(:name, :description,
-      theories_attributes: [:name, :description, :issues, :success, :prove_date, :creator]
+      theories_attributes: [:name, :description, :issues, :success, :prove_date, :creator, :treasure_id, :user_id]
     )
   end
 end

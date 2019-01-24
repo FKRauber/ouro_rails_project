@@ -26,7 +26,7 @@
           <td><%= t.issues %></td>
           <td><%= t.success %></td>
           <td><%= t.prove_date %></td>
-          <td><%= t.creator %></td>
+          <td><%= t.user.username %></td>
           <td><%= link_to "Edit #{t.name}", [:edit, @treasure, t] %></td>
           <td><%= link_to "Delete #{t.name}", treasure_theory_path(@treasure, t), method: :delete, data: { confirm: "Are you sure you want to delete #{t.name}?" } %></td>
 

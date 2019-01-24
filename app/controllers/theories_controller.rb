@@ -3,10 +3,12 @@ class TheoriesController < ApplicationController
   # THEORY CREATION
   def new
     treasure
+    user
     @theory = Theory.new
   end
   def create
     treasure
+    user
     @theory = @treasure.theories.build(theory_params)
     if @theory.save
       redirect_to @treasure, notice: "Theory was successfully saved"
@@ -19,9 +21,11 @@ class TheoriesController < ApplicationController
   def edit
     theory
     treasure
+    user
   end
   def update
     treasure
+    user
     theory.update(theory_params)
     if theory.save
       redirect_to treasure_path(@treasure), notice: "Theory was successfully updated"
@@ -52,8 +56,12 @@ class TheoriesController < ApplicationController
     @treasure = Treasure.find_by(id: params[:treasure_id])
   end
 
+  def user
+    @user = User.find_by(id: params[:user_id])
+  end
+
   def theory_params
-    params.require(:theory).permit(:name, :description, :issues, :success, :prove_date, :creator, :updator, :treasure_id)
+    params.require(:theory).permit(:name, :description, :issues, :success, :prove_date, :creator, :treasure_id, :user_id)
   end
 
 

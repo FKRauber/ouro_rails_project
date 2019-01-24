@@ -25,7 +25,7 @@ Confirm:
 [x] Views use partials if appropriate
 
 Additional :
-[] Show three most recent theories and associated treasures
-[] Add creating user to recent and treasures/show views
-[] Edit schema to properly reflect model relationships
-[] Finish OmniAuth
+[x] Show three most recent theories and associated treasures
+[x] Add creating user to recent and treasures/show views
+[x] Edit schema to properly reflect model relationships
+[x] Finish OmniAuth
