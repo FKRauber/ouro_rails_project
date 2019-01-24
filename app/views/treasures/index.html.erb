@@ -8,14 +8,12 @@
     <tr>
       <td><strong>Name</strong></td>
       <td><strong>Description</strong></td>
-      <td><strong>Created By</strong></td>
     </tr>
 
     <% @treasures.each do |treasure| %>
       <tr>
         <td><%= treasure.name %></td>
         <td><%= treasure.description %></td>
-        <td><%= treasure.name %></td>
 
         <% if current_user.admin %>
           <td><%= link_to "Show #{treasure.name}", treasure_path(treasure) %></td>

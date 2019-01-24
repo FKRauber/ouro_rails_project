@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_23_222806) do
+ActiveRecord::Schema.define(version: 2019_01_24_023634) do
 
   create_table "theories", force: :cascade do |t|
     t.string "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2019_01_23_222806) do
     t.datetime "updated_at", null: false
     t.integer "treasure_id"
     t.integer "user_id"
+    t.string "creator"
     t.index ["treasure_id"], name: "index_theories_on_treasure_id"
   end
 

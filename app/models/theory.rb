@@ -11,4 +11,5 @@ class Theory < ApplicationRecord
 	def self.recent_theories
 		order('created_at desc').limit(3)
 	end
+
 end

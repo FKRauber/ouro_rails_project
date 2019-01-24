@@ -1,6 +1,6 @@
 <%= form_for [@treasure, @theory] do |f| %>
 	<% if @theory.errors.any? %>
-		<div id="error_explanation">	
+		<div id="error_explanation">
 			<h2><%= pluralize(@theory.errors.count, "error") %> prohibited this theory from being saved:</h2>
 			<ul>
 				<% @theory.errors.full_messages.each do |message| %>
@@ -10,7 +10,7 @@
 		</div>
 	<% end %>
 
-	
+
 	<div class="form-group">
 		<%= f.label :name %><br><%= f.text_field :name, class: "form-control" %>
 	</div>
@@ -30,6 +30,8 @@
 	<div class="form-group">
 		<%= f.label :prove_date %><br><%= f.date_field :prove_date, class: "form-control" %>
 	</div><br>
+
+		<%= f.hidden_field :creator, :value => current_user.username %>
 
 	<div class="actions">
 		<%= f.submit "Add Theory" %>

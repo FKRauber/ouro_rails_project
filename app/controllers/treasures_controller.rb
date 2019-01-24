@@ -53,7 +53,7 @@ class TreasuresController < ApplicationController
 
   def treasure_params
     params.require(:treasure).permit(:name, :description,
-      theories_attributes: [:name, :description, :issues, :success, :prove_date]
+      theories_attributes: [:name, :description, :issues, :success, :prove_date, :creator]
     )
   end
 end

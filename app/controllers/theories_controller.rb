@@ -1,14 +1,13 @@
 class TheoriesController < ApplicationController
 
+  # THEORY CREATION
   def new
     treasure
     @theory = Theory.new
-    # @treasure.theory << @theory
   end
   def create
     treasure
     @theory = @treasure.theories.build(theory_params)
-
     if @theory.save
       redirect_to @treasure, notice: "Theory was successfully saved"
     else
@@ -16,6 +15,7 @@ class TheoriesController < ApplicationController
     end
   end
 
+  # THEORY EDIT
   def edit
     theory
     treasure
@@ -30,13 +30,14 @@ class TheoriesController < ApplicationController
     end
   end
 
+  # THEORY DESTROY
   def destroy
     treasure
     theory.destroy
     redirect_to treasure_path(@treasure), notice: "Theory was successfully destroyed"
   end
 
-
+  # THEORY LIST - RECENT 3
   def recent
     @theories = Theory.recent_theories
   end
@@ -52,6 +53,8 @@ class TheoriesController < ApplicationController
   end
 
   def theory_params
-    params.require(:theory).permit(:name, :description, :issues, :success, :prove_date, :treasure_id)
+    params.require(:theory).permit(:name, :description, :issues, :success, :prove_date, :creator, :updator, :treasure_id)
   end
+
+
 end
