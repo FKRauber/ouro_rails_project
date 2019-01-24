@@ -24,7 +24,7 @@ class TheoriesController < ApplicationController
     treasure
     theory.update(theory_params)
     if theory.save
-      redirect_to treasure_path, notice: "Theory was successfully updated"
+      redirect_to treasure_path(@treasure), notice: "Theory was successfully updated"
     else
       render :edit
     end
