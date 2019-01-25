@@ -8,7 +8,6 @@ class TreasuresController < ApplicationController
   def show
     treasure
     theory
-    user
     @theories = Theory.all
   end
 
@@ -18,6 +17,7 @@ class TreasuresController < ApplicationController
   end
   def create
     @treasure = Treasure.new(treasure_params)
+    @treasure.user_id = current_user.id
     if @treasure.save
       redirect_to @treasure, notice: "Treasure was successfully saved"
     else
@@ -50,10 +50,6 @@ class TreasuresController < ApplicationController
 
   def theory
     @theory = Theory.find_by(id: params[:id])
-  end
-
-  def user
-    @user = User.find_by(id: params[:id])
   end
 
   def treasure_params
