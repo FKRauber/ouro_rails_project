@@ -23,7 +23,6 @@ class TheoriesController < ApplicationController
   end
   def update
     treasure
-    user
     theory.update(theory_params)
     if theory.save
       redirect_to treasure_path(@treasure), notice: "Theory was successfully updated"
